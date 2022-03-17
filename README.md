@@ -7,7 +7,7 @@ Microservicio orientado al registro de usuarios y registros telefonicos asi como
 Descargar Fuentes de git
 
 ```
-git clone https://github.com/JesusGarcia9009/spring-boot-test.git
+git clone https://github.com/JesusGarcia9009/com-tbk-demo-exercise.git
 git checkout main
 ```
 Una vez descargada las fuentes se debe ejecutar el siguiente comando en consola:
@@ -29,15 +29,9 @@ La ejecucion del swagger es atravez del sigiente link:
 ```
 http://localhost:8080/swagger-ui.html#
 ```
-
-quedando de la siguiente forma
-
-![alt text](https://github.com/JesusGarcia9009/demo-spring-security/blob/main/evid.PNG)
-
-La ejecucion del servicio de registro es a traves de la siguiente url:
+La ejecucion del servicio de registro con el siguiente request:
 
 ```
-http://localhost:8080/api/v1/springboot/register
 body:
 {
     "name":"Jesus Garcia",
@@ -69,13 +63,11 @@ El siguiente proyecto tiene la siguiente estructura de ejecucion
 
 Los scripts de para la creacion de la base de datos esta en el archivo
 
-```
-https://github.com/JesusGarcia9009/spring-boot-test/blob/main/DDL.sql
-```
+* [DDL.sql](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/DDL.sql) - Archivo generador de entidades
 
-![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/DDL.sql)
 
 Las configuraciones del sistema están en el archivo el cual se puede eliminar la propiedad de creacion del modelo:
+
 > **bootstrap.yml**
 ```
 jpa:
