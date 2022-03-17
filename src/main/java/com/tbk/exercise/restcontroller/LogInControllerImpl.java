@@ -8,18 +8,14 @@ import java.io.IOException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tbk.exercise.config.JwtProvider;
 import com.tbk.exercise.dto.LogInRequestDto;
 import com.tbk.exercise.dto.ResponseDto;
-import com.tbk.exercise.models.UserModel;
 import com.tbk.exercise.services.UserService;
 
 import io.swagger.annotations.Api;
@@ -41,11 +37,22 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/security-authenticate")
 public class LogInControllerImpl implements LogInController {
 
-	@Autowired
-	private JwtProvider jwtProvider;
 	
-	@Autowired
+	
+	/**
+	 * Global variables
+	 */
 	private UserService userService;
+	
+	/**
+	 *  Class constructor with @autowire annotation
+	 *  
+	 * @param UserService @see {@link UserService}
+	 */
+	@Autowired
+    public LogInControllerImpl(UserService userService) {
+        this.userService = userService;
+    }
 	
 	@Override
 	@PostMapping("/login")
@@ -53,24 +60,9 @@ public class LogInControllerImpl implements LogInController {
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successful return")})
 	public ResponseEntity<ResponseDto> authUser(@Valid @RequestBody LogInRequestDto req) throws IOException {
 		log.info(String.format(LOG_START, Thread.currentThread().getStackTrace()[1].getMethodName()));
-		Authentication sigin = null;
-		sigin = jwtProvider.createToken(req.getEmail(), req.getPassword());
-		
-		ResponseDto autPass = new ResponseDto();
-		String token = jwtProvider.generateToken(sigin);
-		autPass.setToken(token);
-		
-		UserModel model = userService.getUserByEmail(req.getEmail());
-		autPass.setActive(model.isActive());
-		autPass.setCreated(model.getCreated());
-		autPass.setId(model.getId().toString());
-		autPass.setLastLogin(model.getLastLogin());
-		autPass.setModified(model.getModified());
-		model.setLastToken(token);
-		userService.updateUser(model);
-
+		ResponseDto result = userService.logInUser(req);
 		log.info(String.format(LOG_END, Thread.currentThread().getStackTrace()[1].getMethodName()));
-		return new ResponseEntity<>(autPass, HttpStatus.OK);
+		return ResponseEntity.ok(result);
 	}
 	
 }

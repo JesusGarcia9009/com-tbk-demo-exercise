@@ -97,7 +97,7 @@ Herramientas y lenguajes utilizados
 
 
 * [Java](https://www.java.com/) - Lenguaje de programacion.
-* [Gradle](https://gradle.org/) - Manejador de dependencias.
+* [Maven](https://maven.apache.org/) - Manejador de dependencias.
 * [Eclipse](https://www.eclipse.org/) - IDE de desarrollo.
 * [Lombok](https://projectlombok.org/) - Creacion de metodos basicos de objetos.
 

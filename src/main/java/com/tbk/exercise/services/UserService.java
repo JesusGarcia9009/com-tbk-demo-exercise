@@ -1,7 +1,13 @@
 package com.tbk.exercise.services;
 
+import java.io.IOException;
+import java.util.List;
+
+import com.tbk.exercise.dto.LogInRequestDto;
 import com.tbk.exercise.dto.ResponseDto;
+import com.tbk.exercise.dto.UserDto;
 import com.tbk.exercise.dto.UserRequestDto;
+import com.tbk.exercise.handler.MailFoundException;
 import com.tbk.exercise.models.UserModel;
 
 
@@ -13,7 +19,22 @@ import com.tbk.exercise.models.UserModel;
  * @version jdk-11.0.7
  */
 public interface UserService {
-
+	
+	/**
+	 * get user by field username
+	 * 
+	 * @return ResponseDto @see {@link ResponseDto}
+	 * @param dto @see {@link UserRequestDto}
+	 */
+	public ResponseDto registerUser(UserRequestDto dto) throws IOException, MailFoundException; 
+	
+	/**
+	 * autenticate user by user and pass
+	 * 
+	 * @param ResponseDto @see {@link ResponseDto}
+	 * @return dto @see {@link LogInRequestDto}
+	 */
+	public ResponseDto logInUser(LogInRequestDto dto) throws IOException; 
 	
 	/**
 	 * get user by field username
@@ -54,5 +75,13 @@ public interface UserService {
 	 * @return UserModel - @see {@link UserModel}
 	 */
 	public UserModel updateUser(UserModel model) ;
+	
+	/**
+	 * User List - method get list of users- Spring Boot
+	 * 
+	 * @param none
+	 * @return List<UserDto> - @see {@link UserDto}
+	 */
+	public List<UserDto> getListOfUsers() ;
 	
 }

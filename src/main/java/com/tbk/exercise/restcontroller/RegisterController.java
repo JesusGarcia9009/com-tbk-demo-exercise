@@ -10,7 +10,7 @@ import com.tbk.exercise.handler.MailFoundException;
 
 
 /**
- * RegisterController - Register Services Services - Spring Boot
+ * RegisterController - Register Services - Spring Boot
  *
  * @author Jesus Garcia
  * @since 1.0

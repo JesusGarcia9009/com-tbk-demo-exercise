@@ -37,7 +37,7 @@ public class GlobalExceptionHandler {
 		HttpHeaders headers = new HttpHeaders();
 
 		if (ex instanceof MailFoundException) {
-			HttpStatus status = HttpStatus.BAD_REQUEST;
+			HttpStatus status = HttpStatus.CONFLICT;
 			MailFoundException unfe = (MailFoundException) ex;
 			return handleCommonException(unfe, headers, status, request);
 		} else if (ex instanceof MethodArgumentNotValidException) {

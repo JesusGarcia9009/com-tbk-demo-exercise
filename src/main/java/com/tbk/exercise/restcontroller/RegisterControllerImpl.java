@@ -2,7 +2,6 @@ package com.tbk.exercise.restcontroller;
 
 import static com.tbk.exercise.utils.ConstantUtil.LOG_END;
 import static com.tbk.exercise.utils.ConstantUtil.LOG_START;
-import static com.tbk.exercise.utils.ConstantUtil.MAIL_FOUND;
 
 import java.io.IOException;
 
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tbk.exercise.dto.LogInRequestDto;
 import com.tbk.exercise.dto.ResponseDto;
 import com.tbk.exercise.dto.UserRequestDto;
 import com.tbk.exercise.handler.MailFoundException;
@@ -30,14 +28,23 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequestMapping("/security-register")
-@Api(tags = {"Security register"})
+@Api(tags = {"Security Register"})
 public class RegisterControllerImpl implements RegisterController {
 
-	@Autowired
+	/**
+	 * Global variables
+	 */
 	private UserService userService;
 	
+	/**
+	 *  Class constructor with @autowire annotation
+	 *  
+	 * @param UserService @see {@link UserService}
+	 */
 	@Autowired
-	private LogInController logInController;
+    public RegisterControllerImpl(UserService userService) {
+        this.userService = userService;
+    }
 	
 	@Override
 	@PostMapping("/register")
@@ -45,15 +52,9 @@ public class RegisterControllerImpl implements RegisterController {
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successful return")})
 	public ResponseEntity<ResponseDto> registerUser(@Valid @RequestBody(required = true) UserRequestDto req) throws IOException, MailFoundException {
 		log.info(String.format(LOG_START, Thread.currentThread().getStackTrace()[1].getMethodName()));
-		ResponseEntity<ResponseDto> result = null;
-		if(!userService.existUserByEmail(req.getEmail())) {
-			userService.saveUser(req);
-			result = logInController.authUser(new LogInRequestDto(req.getEmail(), req.getPassword()));
-		}else {
-			throw new MailFoundException(MAIL_FOUND);
-		}
+		ResponseDto result = userService.registerUser(req);
 		log.info(String.format(LOG_END, Thread.currentThread().getStackTrace()[1].getMethodName()));
-		return result;
+		return ResponseEntity.ok(result);
 	}
 	
 }
