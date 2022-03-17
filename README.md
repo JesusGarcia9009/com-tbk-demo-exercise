@@ -54,20 +54,27 @@ body:
 ```
 quedando de la siguiente forma
 
-![alt text](https://github.com/JesusGarcia9009/demo-spring-security/blob/main/evid.PNG)
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/ejecucion%20del%20registro.png)
+
+los registros guardados quedan de la siguiente forma
+
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/ejecucion%20del%20registro%20-%20datos%20guardados.png)
 
 
 ## Estructura 🚀
 
 El siguiente proyecto tiene la siguiente estructura de ejecucion
 
-![alt text](https://github.com/JesusGarcia9009/demo-spring-security/blob/main/diagrama.png)
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/diagrama.png)
 
 Los scripts de para la creacion de la base de datos esta en el archivo
 
 ```
 https://github.com/JesusGarcia9009/spring-boot-test/blob/main/DDL.sql
 ```
+
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/DDL.sql)
+
 Las configuraciones del sistema están en el archivo el cual se puede eliminar la propiedad de creacion del modelo:
 > **bootstrap.yml**
 ```
