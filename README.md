@@ -93,9 +93,8 @@ UserControllerImplTest
 
 ## Despliegue 📦
 
-* Despliegue en IC: solo se debe solicitar un merge request a develop.
+* Para desplegar el proyecto en una image docker o k8s
 
-* Despliegue en TEST, PREPROD, PRODUCCION: se debe hacer el checkout a la rama mencionada en el documento de release y luego ejecutar los comandos con los valores especificado en dicho documento.
 
 ```
 $mvn clean install
