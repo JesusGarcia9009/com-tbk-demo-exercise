@@ -69,6 +69,7 @@ Los scripts de para la creacion de la base de datos esta en el archivo
 Las configuraciones del sistema están en el archivo el cual se puede eliminar la propiedad de creacion del modelo:
 
 > **bootstrap.yml**
+
 ```
 jpa:
     database-platform: org.hibernate.dialect.H2Dialect 
@@ -80,6 +81,34 @@ jpa:
         use_sql_comments: true  
         format_sql: true
 ```
+
+
+## Test Unitarias
+En el proyecto se crearon test unitarios utilizando mockito como referencia, estos TEST se hicieron de manera representativa, solo para demostrar el conocimiento por lo que no esta la cobertura al 100%, los test unitarios estan en:
+
+```
+RegisterControllerImplTest
+UserControllerImplTest
+```
+
+## Despliegue 📦
+
+* Despliegue en IC: solo se debe solicitar un merge request a develop.
+
+* Despliegue en TEST, PREPROD, PRODUCCION: se debe hacer el checkout a la rama mencionada en el documento de release y luego ejecutar los comandos con los valores especificado en dicho documento.
+
+```
+$mvn clean install
+docker build -t com-tbk-demo-exercise .
+docker run --name com-tbk-demo-exercise -p 8080:8080 com-tbk-demo-exercise
+```
+* En caso de querer desplegar en K8s se puede subir al registry (dockerhub, gitlab, bitbucket, etc) y aplicar el deployment
+
+```
+$docker push registry.gitlab.com/com-tbk-demo-exercise/{component}:{release}_{enviroment}
+$kubectl apply -f k8s
+```
+PD: Ademas de esto en este proyecto se crea carpeta de despliegue de K8s en la raiz del proyecto
 
 ## Pre-requisitos 🛠
 
