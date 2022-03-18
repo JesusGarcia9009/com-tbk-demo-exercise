@@ -109,6 +109,51 @@ $kubectl apply -f k8s
 ```
 PD: Ademas de esto en este proyecto se crea carpeta de despliegue de K8s en la raiz del proyecto
 
+## Queue
+
+* Al ejecutar el MS se debe generar una cola "Apache ActiveMQ" la cual quedara en consola de la siguiente forma
+
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%201.png)
+
+* El MS constara con unos metodos que le daran uso a la Cola y podra simular una cantidad alta de peticiones 
+- /home - crea los parametros iniciales de la cola
+- /health - nos muestra si la cola esta activa 
+- /metrics - nos muestra la cantidad de mensajes encolados
+- /submit - metodo que recibe un long y este inserta ese mismo numero de peticiones en la cola
+
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%202.png)
+
+* AL subscribir 500 mensajes 
+
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%203.png)
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%204.png)
+
+* Metrica de mensajes enviados
+
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%205.png)
+
+* Metrica de mensajes enviados
+
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%205.png)
+
+* Logs de mensajes procesados
+
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%206.png)
+
+
+```
+$mvn clean install
+docker build -t com-tbk-demo-exercise .
+docker run --name com-tbk-demo-exercise -p 8080:8080 com-tbk-demo-exercise
+```
+* En caso de querer desplegar en K8s se puede subir al registry (dockerhub, gitlab, bitbucket, etc) y aplicar el deployment
+
+```
+$docker push registry.gitlab.com/com-tbk-demo-exercise/{component}:{release}_{enviroment}
+$kubectl apply -f k8s
+```
+PD: Ademas de esto en este proyecto se crea carpeta de despliegue de K8s en la raiz del proyecto
+
 ## Pre-requisitos 🛠
 
 - Maquina Virtual de Java
