@@ -1,35 +1,35 @@
 # com-tbk-demo-exercise
 
-Microservicio orientado al registro de usuarios y registros telefonicos asi como tambien a la informacion de login de dichos usuarios
+Microservicio orientado al registro de usuarios y registros telefónicos así como también a la información de login de dichos usuarios.
 
 ## Comenzando ðŸš€
 
-Descargar Fuentes de git
+Descargar Fuentes de git:
 
 ```
 git clone https://github.com/JesusGarcia9009/com-tbk-demo-exercise.git
 git checkout main
 ```
-Una vez descargada las fuentes se debe ejecutar el siguiente comando en consola:
+Una vez descargadas las fuentes se debe ejecutar el siguiente comando en consola del sistema operativo:
 
 ```
 mvn clean install
 ```
 
 
-La ejecucion de la consola para acceder a la  base de datos es a travÃ©s del siguiente link:
+Después de iniciado el proyecto, se puede ejecutar la consola H2 para acceder a la  base de datos, a través del siguiente link:
 
 ```
 https://localhost:8080/h2-console
 user: admin
 pass: admin
 ```
-La ejecucion del swagger es atravez del sigiente link:
+La ejecución del swagger es a través del siguiente link:
 
 ```
 http://localhost:8080/swagger-ui.html#
 ```
-La ejecucion del servicio de registro con el siguiente request:
+La ejecución del servicio de registro con el siguiente request:
 
 ```
 body:
