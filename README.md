@@ -100,29 +100,29 @@ $kubectl apply -f k8s
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%201.png)
 
 El MS consta con métodos que le darán uso a la cola y podrá simular una cantidad alta de peticiones: 
-- /home - crea los parametros iniciales de la cola
-- /health - nos muestra si la cola esta activa 
+- /home - crea los parámetros iniciales de la cola
+- /health - nos muestra si la cola está activa 
 - /metrics - nos muestra la cantidad de mensajes encolados
-- /submit - metodo que recibe un long y este inserta ese mismo numero de peticiones en la cola
+- /submit - método que recibe un long e inserta ese mismo número de peticiones en la cola
 
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%202.png)
 
-* AL subscribir 500 mensajes 
+* Al subscribir 500 mensajes: 
 
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%203.png)
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%204.png)
 
-* Metrica de mensajes enviados
+* Métrica de mensajes enviados:
 
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%205.png)
 
-* Metrica de mensajes enviados
-
-![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%205.png)
-
-* Logs de mensajes procesados
+* Métrica de mensajes enviados durante el tiempo de procesamiento:
 
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%206.png)
+
+* Logs de mensajes procesados:
+
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%207.png)
 
 
 ```
