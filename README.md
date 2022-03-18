@@ -2,7 +2,7 @@
 
 Microservicio orientado al registro de usuarios y registros telefónicos así como también a la información de login de dichos usuarios.
 
-## Comenzando ðŸš€
+## Comenzando
 
 Descargar Fuentes de git:
 
@@ -24,49 +24,7 @@ https://localhost:8080/h2-console
 user: admin
 pass: admin
 ```
-La ejecución del swagger es a través del siguiente link:
-
-```
-http://localhost:8080/swagger-ui.html#
-```
-La ejecución del servicio de registro con el siguiente request:
-
-```
-body:
-{
-    "name":"Jesus Garcia",
-    "email":"jesus@gmail.com",
-    "password":"Ja11",
-    "phones":[
-        {
-            "number":"1234567",
-            "citycode":"1",
-            "contrycode":"57"
-        }
-    ]
-}
-```
-quedando de la siguiente forma
-
-![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/ejecucion%20del%20registro.png)
-
-los registros guardados quedan de la siguiente forma
-
-![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/ejecucion%20del%20registro%20-%20datos%20guardados.png)
-
-
-## Estructura ðŸš€
-
-El siguiente proyecto tiene la siguiente estructura de ejecucion
-
-![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/diagrama.png)
-
-Los scripts de para la creacion de la base de datos esta en el archivo
-
-* [DDL.sql](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/DDL.sql) - Archivo generador de entidades
-
-
-Las configuraciones del sistema estÃ¡n en el archivo el cual se puede eliminar la propiedad de creacion del modelo:
+La base de datos se crea junto con el modelo al iniciar el Microservicio, en caso de que se quiera generar el modelo a traves de un archivo SQL, se debe cambiar la siguiente propiedad en el archivo
 
 > **bootstrap.yml**
 
@@ -81,6 +39,33 @@ jpa:
         use_sql_comments: true  
         format_sql: true
 ```
+
+Los scripts de para la creacion de la base de datos esta en el archivo
+
+* [DDL.sql](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/DDL.sql) - Archivo generador de entidades
+
+
+La ejecución del swagger es a través del siguiente link:
+
+```
+http://localhost:8080/swagger-ui.html#
+```
+Dentro del Swagger cual se van a encontrar varios endpoints relacionados con el ejercicio, los cuales se pueden ejecutar desde el mismo swagger quedando de la siguiente forma:
+
+* Ejemplo de Registro
+
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/ejecucion%20del%20registro.png)
+
+los registros guardados quedan de la siguiente forma
+
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/ejecucion%20del%20registro%20-%20datos%20guardados.png)
+
+
+## Estructura
+
+El siguiente proyecto tiene la siguiente estructura de ejecucion
+
+![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/diagrama.png)
 
 
 ## Test Unitarias
