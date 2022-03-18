@@ -125,40 +125,25 @@ El MS consta con métodos que le darán uso a la cola y podrá simular una cantidad
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%207.png)
 
 
-```
-$mvn clean install
-docker build -t com-tbk-demo-exercise .
-docker run --name com-tbk-demo-exercise -p 8080:8080 com-tbk-demo-exercise
-```
-* En caso de querer desplegar en K8s se puede subir al registry (dockerhub, gitlab, bitbucket, etc) y aplicar el deployment
+## Pre-requisitos
 
-```
-$docker push registry.gitlab.com/com-tbk-demo-exercise/{component}:{release}_{enviroment}
-$kubectl apply -f k8s
-```
-PD: Ademas de esto en este proyecto se crea carpeta de despliegue de K8s en la raiz del proyecto
-
-## Pre-requisitos ðŸ› 
-
-- Maquina Virtual de Java
-- Gradle
+- Máquina Virtual de Java
+- Maven
 - Variables de entorno
 - IDE
 - Lombok
 
 
-## Construido con ðŸ› 
-
+## Construido con 
 
 Herramientas y lenguajes utilizados
-
 
 * [Java](https://www.java.com/) - Lenguaje de programacion.
 * [Maven](https://maven.apache.org/) - Manejador de dependencias.
 * [Eclipse](https://www.eclipse.org/) - IDE de desarrollo.
 * [Lombok](https://projectlombok.org/) - Creacion de metodos basicos de objetos.
 
-## Autores.
+## Autores
 
-* **Jesus Garcia** - *Trabajo Inicial-Programacion-Documentacion* 
+* **Jesús García** - *Trabajo Inicial - Programación - Documentación* 
 
