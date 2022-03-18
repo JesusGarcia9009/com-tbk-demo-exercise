@@ -1,8 +1,16 @@
 # com-tbk-demo-exercise
 
-Microservicio orientado al registro de usuarios y registros telefónicos así como también a la información de login de dichos usuarios.
+Microservicio orientado al registro de usuarios y registros telefÃ³nicos asÃ­ como tambiÃ©n a la informaciÃ³n de login de dichos usuarios.
 
-## Comenzando
+## Pre-requisitos ðŸ› 
+
+- MÃ¡quina Virtual de Java
+- Maven
+- Variables de entorno
+- IDE
+- Lombok
+
+## Comenzando ðŸš€
 
 Descargar Fuentes de git:
 
@@ -17,7 +25,7 @@ mvn clean install
 ```
 
 
-Después de iniciado el proyecto, se puede ejecutar la consola H2 para acceder a la  base de datos, a través del siguiente link:
+DespuÃ©s de iniciado el proyecto, se puede ejecutar la consola H2 para acceder a la  base de datos, a travÃ©s del siguiente link:
 
 ```
 https://localhost:8080/h2-console
@@ -40,12 +48,12 @@ jpa:
         format_sql: true
 ```
 
-Los scripts para la generación del modelo de base de datos está en el archivo:
+Los scripts para la generaciÃ³n del modelo de base de datos estÃ¡ en el archivo:
 
 * [DDL.sql](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/DDL.sql) - Archivo generador de entidades
 
 
-La ejecución del Swagger es a través del siguiente link:
+La ejecuciÃ³n del Swagger es a travÃ©s del siguiente link:
 
 ```
 http://localhost:8080/swagger-ui.html#
@@ -61,22 +69,22 @@ Dentro del Swagger se van a encontrar varios endpoints relacionados con el ejerc
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/ejecucion%20del%20registro%20-%20datos%20guardados.png)
 
 
-## Estructura
+## Estructura ðŸ”§
 
 El proyecto tiene la siguiente estructura:
 
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/diagrama.png)
 
 
-## Test Unitarios
-En el proyecto se crearon test unitarios utilizando mockito como referencia. Estos TEST se hicieron de manera representativa, solo para demostrar el conocimiento, por lo que no está la cobertura al 100%. Se encuentran en:
+## Test Unitarios âš™
+En el proyecto se crearon test unitarios utilizando mockito como referencia. Estos TEST se hicieron de manera representativa, solo para demostrar el conocimiento, por lo que no estÃ¡ la cobertura al 100%. Se encuentran en:
 
 ```
 RegisterControllerImplTest
 UserControllerImplTest
 ```
 
-## Despliegue
+## Despliegue ðŸ“¦
 
 * Para desplegar el proyecto en una image docker o k8s:
 
@@ -86,24 +94,24 @@ $mvn clean install
 docker build -t com-tbk-demo-exercise .
 docker run --name com-tbk-demo-exercise -p 8080:8080 com-tbk-demo-exercise
 ```
-* En este proyecto se generó una carpeta de despliegue de K8s en la raíz. En caso de querer desplegar en K8s, se puede subir al registry (dockerhub, gitlab, bitbucket, etc) y aplicar el deployment:
+* En este proyecto se generÃ³ una carpeta de despliegue de K8s en la raÃ­z. En caso de querer desplegar en K8s, se puede subir al registry (dockerhub, gitlab, bitbucket, etc) y aplicar el deployment:
 
 ```
 $docker push registry.gitlab.com/com-tbk-demo-exercise/{component}:{release}_{enviroment}
 $kubectl apply -f k8s
 ```
 
-## Queue
+## Queue ðŸ“¦
 
-* Al ejecutar el MS se debe generar una cola "Apache ActiveMQ" la cual quedará en consola de la siguiente forma:
+* Al ejecutar el MS se debe generar una cola "Apache ActiveMQ" la cual quedarÃ¡ en consola de la siguiente forma:
 
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%201.png)
 
-El MS consta con métodos que le darán uso a la cola y podrá simular una cantidad alta de peticiones: 
-- /home - crea los parámetros iniciales de la cola
-- /health - nos muestra si la cola está activa 
+El MS consta con mÃ©todos que le darÃ¡n uso a la cola y podrÃ¡ simular una cantidad alta de peticiones: 
+- /home - crea los parÃ¡metros iniciales de la cola
+- /health - nos muestra si la cola estÃ¡ activa 
 - /metrics - nos muestra la cantidad de mensajes encolados
-- /submit - método que recibe un long e inserta ese mismo número de peticiones en la cola
+- /submit - mÃ©todo que recibe un long e inserta ese mismo nÃºmero de peticiones en la cola
 
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%202.png)
 
@@ -112,11 +120,11 @@ El MS consta con métodos que le darán uso a la cola y podrá simular una cantidad
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%203.png)
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%204.png)
 
-* Métrica de mensajes enviados:
+* MÃ©trica de mensajes enviados:
 
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%205.png)
 
-* Métrica de mensajes enviados durante el tiempo de procesamiento:
+* MÃ©trica de mensajes enviados durante el tiempo de procesamiento:
 
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%206.png)
 
@@ -125,16 +133,7 @@ El MS consta con métodos que le darán uso a la cola y podrá simular una cantidad
 ![alt text](https://github.com/JesusGarcia9009/com-tbk-demo-exercise/blob/main/doc/queue%207.png)
 
 
-## Pre-requisitos
-
-- Máquina Virtual de Java
-- Maven
-- Variables de entorno
-- IDE
-- Lombok
-
-
-## Construido con 
+## Construido con ðŸ› 
 
 Herramientas y lenguajes utilizados
 
@@ -145,5 +144,5 @@ Herramientas y lenguajes utilizados
 
 ## Autores
 
-* **Jesús García** - *Trabajo Inicial - Programación - Documentación* 
+* **JesÃºs GarcÃ­a** - *Trabajo Inicial - ProgramaciÃ³n - DocumentaciÃ³n* 
 
